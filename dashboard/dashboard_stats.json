@@ -80,5 +80,1337 @@
     "expresspay_failures": 0,
     "reversals_generated": 24,
     "reversal_amount": 614.0
+  },
+  {
+    "date": "2026-04-08",
+    "total_transactions": 96,
+    "successful": 94,
+    "total_failed": 2,
+    "failure_rate": 2.08,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 2,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 2,
+    "reversal_amount": 15.0
+  },
+  {
+    "date": "2026-04-23",
+    "total_transactions": 112,
+    "successful": 102,
+    "total_failed": 10,
+    "failure_rate": 8.93,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 10,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 10,
+    "reversal_amount": 209.0
+  },
+  {
+    "date": "2026-04-24",
+    "total_transactions": 111,
+    "successful": 110,
+    "total_failed": 1,
+    "failure_rate": 0.9,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 1,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 1,
+    "reversal_amount": 20.0
+  },
+  {
+    "date": "2026-04-27",
+    "total_transactions": 274,
+    "successful": 232,
+    "total_failed": 35,
+    "failure_rate": 12.77,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 34,
+      "Third party Timeout": 1,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 7,
+    "expresspay_failures": 2,
+    "reversals_generated": 37,
+    "reversal_amount": 652.0
+  },
+  {
+    "date": "2026-04-28",
+    "total_transactions": 88,
+    "successful": 85,
+    "total_failed": 3,
+    "failure_rate": 3.41,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 3,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 3,
+    "reversal_amount": 9.0
+  },
+  {
+    "date": "2026-04-29",
+    "total_transactions": 83,
+    "successful": 77,
+    "total_failed": 5,
+    "failure_rate": 6.02,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 5,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 0,
+    "reversals_generated": 5,
+    "reversal_amount": 111.0
+  },
+  {
+    "date": "2026-04-30",
+    "total_transactions": 98,
+    "successful": 84,
+    "total_failed": 11,
+    "failure_rate": 11.22,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 11,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 3,
+    "expresspay_failures": 0,
+    "reversals_generated": 11,
+    "reversal_amount": 170.0
+  },
+  {
+    "date": "2026-05-04",
+    "total_transactions": 464,
+    "successful": 420,
+    "total_failed": 36,
+    "failure_rate": 7.76,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 36,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 8,
+    "expresspay_failures": 0,
+    "reversals_generated": 36,
+    "reversal_amount": 932.0
+  },
+  {
+    "date": "2026-05-05",
+    "total_transactions": 102,
+    "successful": 93,
+    "total_failed": 7,
+    "failure_rate": 6.86,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 7,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 2,
+    "expresspay_failures": 1,
+    "reversals_generated": 8,
+    "reversal_amount": 522.0
+  },
+  {
+    "date": "2026-05-06",
+    "total_transactions": 91,
+    "successful": 90,
+    "total_failed": 1,
+    "failure_rate": 1.1,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 1,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 1,
+    "reversal_amount": 50.0
+  },
+  {
+    "date": "2026-05-11",
+    "total_transactions": 89,
+    "successful": 84,
+    "total_failed": 4,
+    "failure_rate": 4.49,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 4,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 3,
+    "reversals_generated": 7,
+    "reversal_amount": 163.0
+  },
+  {
+    "date": "2026-05-12",
+    "total_transactions": 318,
+    "successful": 277,
+    "total_failed": 39,
+    "failure_rate": 12.26,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 31,
+      "Third party Timeout": 8,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 2,
+    "expresspay_failures": 6,
+    "reversals_generated": 45,
+    "reversal_amount": 3646.0
+  },
+  {
+    "date": "2026-05-14",
+    "total_transactions": 103,
+    "successful": 63,
+    "total_failed": 40,
+    "failure_rate": 38.83,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 40,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 40,
+    "reversal_amount": 784.0
+  },
+  {
+    "date": "2026-05-15",
+    "total_transactions": 89,
+    "successful": 72,
+    "total_failed": 16,
+    "failure_rate": 17.98,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 16,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 0,
+    "reversals_generated": 16,
+    "reversal_amount": 216.0
+  },
+  {
+    "date": "2026-05-18",
+    "total_transactions": 240,
+    "successful": 211,
+    "total_failed": 22,
+    "failure_rate": 9.17,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 21,
+      "Third party Timeout": 1,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 7,
+    "expresspay_failures": 0,
+    "reversals_generated": 22,
+    "reversal_amount": 326.0
+  },
+  {
+    "date": "2026-05-19",
+    "total_transactions": 90,
+    "successful": 82,
+    "total_failed": 6,
+    "failure_rate": 6.67,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 6,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 2,
+    "expresspay_failures": 1,
+    "reversals_generated": 7,
+    "reversal_amount": 66.0
+  },
+  {
+    "date": "2026-05-20",
+    "total_transactions": 93,
+    "successful": 92,
+    "total_failed": 1,
+    "failure_rate": 1.08,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 1,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 1,
+    "reversal_amount": 20.0
+  },
+  {
+    "date": "2026-05-21",
+    "total_transactions": 72,
+    "successful": 61,
+    "total_failed": 11,
+    "failure_rate": 15.28,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 11,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 11,
+    "reversal_amount": 155.0
+  },
+  {
+    "date": "2026-05-22",
+    "total_transactions": 82,
+    "successful": 79,
+    "total_failed": 3,
+    "failure_rate": 3.66,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 3,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 3,
+    "reversal_amount": 60.0
+  },
+  {
+    "date": "2026-05-25",
+    "total_transactions": 252,
+    "successful": 226,
+    "total_failed": 24,
+    "failure_rate": 9.52,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 24,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 2,
+    "expresspay_failures": 1,
+    "reversals_generated": 25,
+    "reversal_amount": 249.0
+  },
+  {
+    "date": "2026-05-26",
+    "total_transactions": 82,
+    "successful": 81,
+    "total_failed": 1,
+    "failure_rate": 1.22,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 1,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 1,
+    "reversal_amount": 3.0
+  },
+  {
+    "date": "2026-05-28",
+    "total_transactions": 181,
+    "successful": 155,
+    "total_failed": 23,
+    "failure_rate": 12.71,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 23,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 3,
+    "expresspay_failures": 0,
+    "reversals_generated": 23,
+    "reversal_amount": 573.0
+  },
+  {
+    "date": "2026-05-29",
+    "total_transactions": 91,
+    "successful": 80,
+    "total_failed": 11,
+    "failure_rate": 12.09,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 8,
+      "Third party Timeout": 0,
+      "Invalid Request": 3,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 11,
+    "reversal_amount": 170.0
+  },
+  {
+    "date": "2026-06-01",
+    "total_transactions": 330,
+    "successful": 285,
+    "total_failed": 36,
+    "failure_rate": 10.91,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 36,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 9,
+    "expresspay_failures": 0,
+    "reversals_generated": 36,
+    "reversal_amount": 1134.0
+  },
+  {
+    "date": "2026-06-02",
+    "total_transactions": 99,
+    "successful": 93,
+    "total_failed": 4,
+    "failure_rate": 4.04,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 4,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 2,
+    "expresspay_failures": 0,
+    "reversals_generated": 4,
+    "reversal_amount": 125.0
+  },
+  {
+    "date": "2026-06-03",
+    "total_transactions": 111,
+    "successful": 86,
+    "total_failed": 23,
+    "failure_rate": 20.72,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 23,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 2,
+    "expresspay_failures": 0,
+    "reversals_generated": 23,
+    "reversal_amount": 406.0
+  },
+  {
+    "date": "2026-06-04",
+    "total_transactions": 104,
+    "successful": 82,
+    "total_failed": 21,
+    "failure_rate": 20.19,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 21,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 0,
+    "reversals_generated": 21,
+    "reversal_amount": 1324.0
+  },
+  {
+    "date": "2026-06-05",
+    "total_transactions": 104,
+    "successful": 76,
+    "total_failed": 28,
+    "failure_rate": 26.92,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 28,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 1,
+    "reversals_generated": 29,
+    "reversal_amount": 417.0
+  },
+  {
+    "date": "2026-06-08",
+    "total_transactions": 260,
+    "successful": 201,
+    "total_failed": 59,
+    "failure_rate": 22.69,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 56,
+      "Third party Timeout": 3,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 2,
+    "reversals_generated": 61,
+    "reversal_amount": 956.0
+  },
+  {
+    "date": "2026-06-09",
+    "total_transactions": 135,
+    "successful": 119,
+    "total_failed": 15,
+    "failure_rate": 11.11,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 12,
+      "Third party Timeout": 1,
+      "Invalid Request": 2,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 0,
+    "reversals_generated": 15,
+    "reversal_amount": 266.0
+  },
+  {
+    "date": "2026-06-10",
+    "total_transactions": 106,
+    "successful": 103,
+    "total_failed": 3,
+    "failure_rate": 2.83,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 2,
+      "Third party Timeout": 0,
+      "Invalid Request": 1,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 3,
+    "reversal_amount": 50.0
+  },
+  {
+    "date": "2026-06-11",
+    "total_transactions": 101,
+    "successful": 100,
+    "total_failed": 1,
+    "failure_rate": 0.99,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 0,
+      "Third party Timeout": 1,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 1,
+    "reversal_amount": 5.0
+  },
+  {
+    "date": "2026-06-12",
+    "total_transactions": 111,
+    "successful": 103,
+    "total_failed": 8,
+    "failure_rate": 7.21,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 8,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 8,
+    "reversal_amount": 95.0
+  },
+  {
+    "date": "2026-06-15",
+    "total_transactions": 271,
+    "successful": 258,
+    "total_failed": 12,
+    "failure_rate": 4.43,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 3,
+      "Third party Timeout": 9,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 6,
+    "reversals_generated": 18,
+    "reversal_amount": 352.0
+  },
+  {
+    "date": "2026-06-16",
+    "total_transactions": 123,
+    "successful": 120,
+    "total_failed": 3,
+    "failure_rate": 2.44,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 3,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 3,
+    "reversal_amount": 23.0
+  },
+  {
+    "date": "2026-06-17",
+    "total_transactions": 119,
+    "successful": 118,
+    "total_failed": 1,
+    "failure_rate": 0.84,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 1,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 2,
+    "reversals_generated": 3,
+    "reversal_amount": 56.0
+  },
+  {
+    "date": "2026-06-18",
+    "total_transactions": 115,
+    "successful": 109,
+    "total_failed": 6,
+    "failure_rate": 5.22,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 1,
+      "Third party Timeout": 0,
+      "Invalid Request": 5,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 6,
+    "reversal_amount": 100.0
+  },
+  {
+    "date": "2026-06-19",
+    "total_transactions": 101,
+    "successful": 96,
+    "total_failed": 5,
+    "failure_rate": 4.95,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 4,
+      "Third party Timeout": 0,
+      "Invalid Request": 1,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 5,
+    "reversal_amount": 79.0
+  },
+  {
+    "date": "2026-06-22",
+    "total_transactions": 344,
+    "successful": 297,
+    "total_failed": 30,
+    "failure_rate": 8.72,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 30,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 17,
+    "expresspay_failures": 5,
+    "reversals_generated": 35,
+    "reversal_amount": 509.0
+  },
+  {
+    "date": "2026-06-23",
+    "total_transactions": 108,
+    "successful": 107,
+    "total_failed": 1,
+    "failure_rate": 0.93,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 1,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 1,
+    "reversal_amount": 20.0
+  },
+  {
+    "date": "2026-06-24",
+    "total_transactions": 106,
+    "successful": 88,
+    "total_failed": 17,
+    "failure_rate": 16.04,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 17,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 0,
+    "reversals_generated": 17,
+    "reversal_amount": 301.0
+  },
+  {
+    "date": "2026-06-25",
+    "total_transactions": 135,
+    "successful": 121,
+    "total_failed": 12,
+    "failure_rate": 8.89,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 12,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 2,
+    "expresspay_failures": 1,
+    "reversals_generated": 13,
+    "reversal_amount": 187.0
+  },
+  {
+    "date": "2026-06-26",
+    "total_transactions": 151,
+    "successful": 132,
+    "total_failed": 19,
+    "failure_rate": 12.58,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 19,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 1,
+    "reversals_generated": 20,
+    "reversal_amount": 323.0
+  },
+  {
+    "date": "2026-06-29",
+    "total_transactions": 407,
+    "successful": 368,
+    "total_failed": 35,
+    "failure_rate": 8.6,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 35,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 3,
+    "expresspay_failures": 1,
+    "reversals_generated": 36,
+    "reversal_amount": 1009.0
+  },
+  {
+    "date": "2026-06-30",
+    "total_transactions": 150,
+    "successful": 147,
+    "total_failed": 2,
+    "failure_rate": 1.33,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 2,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 0,
+    "reversals_generated": 2,
+    "reversal_amount": 30.0
+  },
+  {
+    "date": "2026-07-01",
+    "total_transactions": 205,
+    "successful": 167,
+    "total_failed": 33,
+    "failure_rate": 16.1,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 33,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0
+    },
+    "retry_excluded": 5,
+    "expresspay_failures": 0,
+    "reversals_generated": 33,
+    "reversal_amount": 1307.0
+  },
+  {
+    "date": "2026-07-02",
+    "total_transactions": 116,
+    "successful": 109,
+    "total_failed": 7,
+    "failure_rate": 6.03,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 1,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 6
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 7,
+    "reversal_amount": 120.0
+  },
+  {
+    "date": "2026-07-06",
+    "total_transactions": 563,
+    "successful": 497,
+    "total_failed": 56,
+    "failure_rate": 9.95,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 15,
+      "Third party Timeout": 1,
+      "Invalid Request": 38,
+      "Insufficient Funds": 0,
+      "Transaction failed": 1,
+      "Transaction Pending": 1
+    },
+    "retry_excluded": 10,
+    "expresspay_failures": 22,
+    "reversals_generated": 78,
+    "reversal_amount": 1226.0
+  },
+  {
+    "date": "2026-07-07",
+    "total_transactions": 148,
+    "successful": 142,
+    "total_failed": 6,
+    "failure_rate": 4.05,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 6,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 1,
+    "reversals_generated": 7,
+    "reversal_amount": 110.0
+  },
+  {
+    "date": "2026-07-08",
+    "total_transactions": 145,
+    "successful": 139,
+    "total_failed": 5,
+    "failure_rate": 3.45,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 5,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 0,
+    "reversals_generated": 5,
+    "reversal_amount": 461.0
+  },
+  {
+    "date": "2026-07-09",
+    "total_transactions": 74,
+    "successful": 67,
+    "total_failed": 5,
+    "failure_rate": 6.76,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 4,
+      "Third party Timeout": 1,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 2,
+    "expresspay_failures": 0,
+    "reversals_generated": 5,
+    "reversal_amount": 70.0
+  },
+  {
+    "date": "2026-07-10",
+    "total_transactions": 109,
+    "successful": 108,
+    "total_failed": 1,
+    "failure_rate": 0.92,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 1,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 1,
+    "reversal_amount": 10.0
+  },
+  {
+    "date": "2026-07-13",
+    "total_transactions": 337,
+    "successful": 333,
+    "total_failed": 4,
+    "failure_rate": 1.19,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 3,
+      "Third party Timeout": 1,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 3,
+    "reversals_generated": 7,
+    "reversal_amount": 918.0
+  },
+  {
+    "date": "2026-07-14",
+    "total_transactions": 116,
+    "successful": 109,
+    "total_failed": 5,
+    "failure_rate": 4.31,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 0,
+      "Third party Timeout": 0,
+      "Invalid Request": 4,
+      "Insufficient Funds": 1,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 2,
+    "expresspay_failures": 0,
+    "reversals_generated": 5,
+    "reversal_amount": 434.0
+  },
+  {
+    "date": "2026-07-15",
+    "total_transactions": 128,
+    "successful": 117,
+    "total_failed": 9,
+    "failure_rate": 7.03,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 9,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 2,
+    "expresspay_failures": 1,
+    "reversals_generated": 10,
+    "reversal_amount": 525.0
+  },
+  {
+    "date": "2026-07-16",
+    "total_transactions": 101,
+    "successful": 99,
+    "total_failed": 2,
+    "failure_rate": 1.98,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 2,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 2,
+    "reversal_amount": 70.0
+  },
+  {
+    "date": "2026-07-17",
+    "total_transactions": 95,
+    "successful": 92,
+    "total_failed": 2,
+    "failure_rate": 2.11,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 2,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 0,
+    "reversals_generated": 2,
+    "reversal_amount": 8.0
+  },
+  {
+    "date": "2026-07-20",
+    "total_transactions": 366,
+    "successful": 97,
+    "total_failed": 206,
+    "failure_rate": 56.28,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 10,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 196,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 63,
+    "expresspay_failures": 1,
+    "reversals_generated": 207,
+    "reversal_amount": 4095.0
+  },
+  {
+    "date": "2026-07-21",
+    "total_transactions": 60,
+    "successful": 36,
+    "total_failed": 22,
+    "failure_rate": 36.67,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 0,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 22,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 2,
+    "expresspay_failures": 0,
+    "reversals_generated": 22,
+    "reversal_amount": 420.5
+  },
+  {
+    "date": "2026-07-22",
+    "total_transactions": 61,
+    "successful": 59,
+    "total_failed": 2,
+    "failure_rate": 3.28,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 2,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 2,
+    "reversal_amount": 40.0
+  },
+  {
+    "date": "2026-07-23",
+    "total_transactions": 80,
+    "successful": 79,
+    "total_failed": 1,
+    "failure_rate": 1.25,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 1,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 1,
+    "reversal_amount": 1.0
+  },
+  {
+    "date": "2026-07-24",
+    "total_transactions": 99,
+    "successful": 94,
+    "total_failed": 4,
+    "failure_rate": 4.04,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 3,
+      "Third party Timeout": 1,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 0,
+    "reversals_generated": 4,
+    "reversal_amount": 70.0
+  },
+  {
+    "date": "2026-07-27",
+    "total_transactions": 265,
+    "successful": 257,
+    "total_failed": 6,
+    "failure_rate": 2.26,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 6,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 2,
+    "expresspay_failures": 0,
+    "reversals_generated": 6,
+    "reversal_amount": 634.0
+  },
+  {
+    "date": "2026-07-28",
+    "total_transactions": 107,
+    "successful": 96,
+    "total_failed": 7,
+    "failure_rate": 6.54,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 7,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 4,
+    "expresspay_failures": 0,
+    "reversals_generated": 7,
+    "reversal_amount": 107.0
+  },
+  {
+    "date": "2026-07-29",
+    "total_transactions": 91,
+    "successful": 87,
+    "total_failed": 4,
+    "failure_rate": 4.4,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 1,
+      "Third party Timeout": 3,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 4,
+    "reversal_amount": 50.0
+  },
+  {
+    "date": "2026-07-30",
+    "total_transactions": 108,
+    "successful": 105,
+    "total_failed": 1,
+    "failure_rate": 0.93,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 1,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 2,
+    "expresspay_failures": 0,
+    "reversals_generated": 1,
+    "reversal_amount": 50.0
+  },
+  {
+    "date": "2026-07-31",
+    "total_transactions": 126,
+    "successful": 117,
+    "total_failed": 6,
+    "failure_rate": 4.76,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 6,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 3,
+    "expresspay_failures": 0,
+    "reversals_generated": 6,
+    "reversal_amount": 477.0
+  },
+  {
+    "date": "2026-08-03",
+    "total_transactions": 265,
+    "successful": 261,
+    "total_failed": 3,
+    "failure_rate": 1.13,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 3,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 9,
+    "reversals_generated": 12,
+    "reversal_amount": 190.0
+  },
+  {
+    "date": "2026-08-04",
+    "total_transactions": 100,
+    "successful": 98,
+    "total_failed": 2,
+    "failure_rate": 2.0,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 2,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 2,
+    "reversal_amount": 30.0
+  },
+  {
+    "date": "2026-08-05",
+    "total_transactions": 71,
+    "successful": 66,
+    "total_failed": 4,
+    "failure_rate": 5.63,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 4,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 0,
+    "reversals_generated": 4,
+    "reversal_amount": 220.0
+  },
+  {
+    "date": "2026-08-07",
+    "total_transactions": 121,
+    "successful": 111,
+    "total_failed": 10,
+    "failure_rate": 8.26,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 10,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 5,
+    "reversals_generated": 15,
+    "reversal_amount": 230.0
+  },
+  {
+    "date": "2026-08-10",
+    "total_transactions": 314,
+    "successful": 303,
+    "total_failed": 10,
+    "failure_rate": 3.18,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 5,
+      "Third party Timeout": 5,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 0,
+    "reversals_generated": 10,
+    "reversal_amount": 131.0
+  },
+  {
+    "date": "2026-08-11",
+    "total_transactions": 91,
+    "successful": 89,
+    "total_failed": 2,
+    "failure_rate": 2.2,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 2,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 0,
+    "reversals_generated": 2,
+    "reversal_amount": 55.0
+  },
+  {
+    "date": "2026-08-12",
+    "total_transactions": 112,
+    "successful": 110,
+    "total_failed": 1,
+    "failure_rate": 0.89,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 1,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 1,
+    "expresspay_failures": 1,
+    "reversals_generated": 2,
+    "reversal_amount": 10.0
+  },
+  {
+    "date": "2026-08-13",
+    "total_transactions": 83,
+    "successful": 81,
+    "total_failed": 2,
+    "failure_rate": 2.41,
+    "failure_types": {
+      "FULFILMENT_TIMEOUT": 2,
+      "Third party Timeout": 0,
+      "Invalid Request": 0,
+      "Insufficient Funds": 0,
+      "Transaction failed": 0,
+      "Transaction Pending": 0
+    },
+    "retry_excluded": 0,
+    "expresspay_failures": 1,
+    "reversals_generated": 3,
+    "reversal_amount": 15.0
   }
 ]

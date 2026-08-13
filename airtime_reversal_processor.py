@@ -13,7 +13,7 @@ import pandas as pd
 import os
 import re
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Font, Alignment, PatternFill, Border, Side
 from openpyxl.utils import get_column_letter
@@ -55,16 +55,20 @@ def filter_failed_transactions(expresspay_df):
     """
     print("\nFiltering failed transactions...")
 
-    failure_types = ['FULFILMENT_TIMEOUT', 'Third party Timeout', 'Invalid Request', 'Insufficient Funds']
+    failure_types = ['FULFILMENT_TIMEOUT', 'Third party Timeout', 'Invalid Request', 'Insufficient Funds', 'Transaction failed', 'Transaction Pending']
     failed_df = expresspay_df[expresspay_df['RESULT_MSG'].isin(failure_types)].copy()
     fulfilment_count = len(failed_df[failed_df['RESULT_MSG'] == 'FULFILMENT_TIMEOUT'])
     third_party_count = len(failed_df[failed_df['RESULT_MSG'] == 'Third party Timeout'])
     invalid_count = len(failed_df[failed_df['RESULT_MSG'] == 'Invalid Request'])
     insufficient_count = len(failed_df[failed_df['RESULT_MSG'] == 'Insufficient Funds'])
+    transaction_failed_count = len(failed_df[failed_df['RESULT_MSG'] == 'Transaction failed'])
+    transaction_pending_count = len(failed_df[failed_df['RESULT_MSG'] == 'Transaction Pending'])
     print(f"  FULFILMENT_TIMEOUT transactions: {fulfilment_count}")
     print(f"  Third party Timeout transactions: {third_party_count}")
     print(f"  Invalid Request transactions: {invalid_count}")
     print(f"  Insufficient Funds transactions: {insufficient_count}")
+    print(f"  Transaction failed transactions: {transaction_failed_count}")
+    print(f"  Transaction Pending transactions: {transaction_pending_count}")
 
     # Exclude any TRACE_IDs that eventually succeeded
     successful_trace_ids = expresspay_df[
@@ -418,7 +422,7 @@ def save_daily_stats(script_dir, expresspay_df, failed_df, total_reversals, tota
 
     # Count failure types
     failure_counts = {}
-    for ftype in ['FULFILMENT_TIMEOUT', 'Third party Timeout', 'Invalid Request', 'Insufficient Funds']:
+    for ftype in ['FULFILMENT_TIMEOUT', 'Third party Timeout', 'Invalid Request', 'Insufficient Funds', 'Transaction failed', 'Transaction Pending']:
         failure_counts[ftype] = int(len(failed_df[failed_df['RESULT_MSG'] == ftype]))
 
     total_txns = int(len(expresspay_df))
@@ -482,13 +486,13 @@ def build_dashboard(script_dir, stats_log):
     ws.sheet_properties.tabColor = "1F4E79"
 
     # Title
-    ws.merge_cells('A1:K1')
+    ws.merge_cells('A1:M1')
     title_cell = ws.cell(row=1, column=1, value="Airtime & Bundles Reversal Dashboard")
     title_cell.font = TITLE_FONT
     title_cell.alignment = Alignment(horizontal='center', vertical='center')
     ws.row_dimensions[1].height = 30
 
-    ws.merge_cells('A2:K2')
+    ws.merge_cells('A2:M2')
     ws.cell(row=2, column=1, value=f"Last updated: {datetime.now().strftime('%d %b %Y %H:%M')}").font = Font(italic=True, color="808080")
     ws.cell(row=2, column=1).alignment = Alignment(horizontal='center')
 
@@ -496,7 +500,7 @@ def build_dashboard(script_dir, stats_log):
     headers = [
         "Date", "Total Txns", "Successful", "Failed",
         "Failure Rate %", "Fulfilment Timeout", "3rd Party Timeout",
-        "Invalid Request", "Insufficient Funds", "Reversals", "Reversal Amount (GHS)"
+        "Invalid Request", "Insufficient Funds", "Transaction Failed", "Transaction Pending", "Reversals", "Reversal Amount (GHS)"
     ]
     for col_idx, header in enumerate(headers, 1):
         cell = ws.cell(row=4, column=col_idx, value=header)
@@ -518,6 +522,8 @@ def build_dashboard(script_dir, stats_log):
             ft.get('Third party Timeout', 0),
             ft.get('Invalid Request', 0),
             ft.get('Insufficient Funds', 0),
+            ft.get('Transaction failed', 0),
+            ft.get('Transaction Pending', 0),
             entry['reversals_generated'],
             entry['reversal_amount']
         ]
@@ -531,10 +537,10 @@ def build_dashboard(script_dir, stats_log):
             if col_idx == 5:
                 cell.number_format = '0.00"%"'
             # Format currency
-            if col_idx == 11:
+            if col_idx == 13:
                 cell.number_format = '#,##0.00'
 
-    col_widths = [14, 12, 12, 10, 14, 18, 18, 16, 18, 12, 22]
+    col_widths = [14, 12, 12, 10, 14, 18, 18, 16, 18, 18, 18, 12, 22]
     for i, w in enumerate(col_widths):
         ws.column_dimensions[get_column_letter(i + 1)].width = w
 
@@ -552,15 +558,76 @@ def build_dashboard(script_dir, stats_log):
     ws_charts.row_dimensions[1].height = 30
 
     if len(stats_log) >= 1:
-        # Extract data for charts
-        dates = [e['date'] for e in stats_log]
-        short_dates = [d[5:] for d in dates]  # MM-DD for cleaner x-axis
-        successful = [e['successful'] for e in stats_log]
-        failed = [e['total_failed'] for e in stats_log]
-        fail_rates = [e['failure_rate'] for e in stats_log]
-        rev_amounts = [e['reversal_amount'] for e in stats_log]
         latest = stats_log[-1]
         ft = latest.get('failure_types', {})
+
+        # ── Aggregate to weekly when there are more than 7 daily entries ──
+        DAILY_THRESHOLD = 7
+
+        def _aggregate_weekly(log):
+            from collections import OrderedDict
+            weeks = OrderedDict()
+            for entry in log:
+                dt = datetime.strptime(entry['date'], '%Y-%m-%d')
+                week_start = dt - timedelta(days=dt.weekday())  # Monday
+                key = week_start.strftime('%m/%d')
+                if key not in weeks:
+                    weeks[key] = {'total_transactions': 0, 'successful': 0,
+                                  'total_failed': 0, 'reversals_generated': 0,
+                                  'reversal_amount': 0.0, 'failure_types': {}}
+                w = weeks[key]
+                w['total_transactions'] += entry['total_transactions']
+                w['successful'] += entry['successful']
+                w['total_failed'] += entry['total_failed']
+                w['reversals_generated'] += entry['reversals_generated']
+                w['reversal_amount'] += entry['reversal_amount']
+                for fk, fv in entry.get('failure_types', {}).items():
+                    w['failure_types'][fk] = w['failure_types'].get(fk, 0) + fv
+            result = []
+            for label, w in weeks.items():
+                result.append({
+                    'label': label,
+                    'successful': w['successful'],
+                    'total_failed': w['total_failed'],
+                    'failure_rate': round(w['total_failed'] / w['total_transactions'] * 100, 2)
+                                   if w['total_transactions'] > 0 else 0,
+                    'reversal_amount': w['reversal_amount'],
+                    'failure_types': w['failure_types'],
+                })
+            return result
+
+        use_weekly = len(stats_log) > DAILY_THRESHOLD
+        if use_weekly:
+            chart_data = _aggregate_weekly(stats_log)
+            labels = [d['label'] for d in chart_data]
+            period_label = 'Weekly'
+        else:
+            labels = [e['date'][5:] for e in stats_log]  # MM-DD
+            chart_data = [
+                {'label': l, 'successful': e['successful'], 'total_failed': e['total_failed'],
+                 'failure_rate': e['failure_rate'], 'reversal_amount': e['reversal_amount'],
+                 'failure_types': e.get('failure_types', {})}
+                for l, e in zip(labels, stats_log)
+            ]
+            period_label = 'Daily'
+
+        successful = [d['successful'] for d in chart_data]
+        failed = [d['total_failed'] for d in chart_data]
+        fail_rates = [d['failure_rate'] for d in chart_data]
+        rev_amounts = [d['reversal_amount'] for d in chart_data]
+
+        MAX_TICKS = 8  # never show more than 8 x-axis labels
+        import math as _math
+        n_pts = len(labels)
+        tick_step = max(1, _math.ceil(n_pts / MAX_TICKS))
+        tick_positions = list(range(0, n_pts, tick_step))
+        tick_labels = [labels[i] for i in tick_positions]
+
+        def _set_xticks(ax):
+            ax.set_xticks(tick_positions)
+            ax.set_xticklabels(tick_labels, rotation=40, ha='right', fontsize=9)
+
+        fig_w = max(7, min(12, n_pts * 0.6))
 
         # Professional style settings
         plt.rcParams.update({
@@ -569,7 +636,7 @@ def build_dashboard(script_dir, stats_log):
             'axes.spines.top': False,
             'axes.spines.right': False,
             'axes.grid': True,
-            'grid.alpha': 0.3,
+            'grid.alpha': 0.25,
             'grid.linestyle': '--',
             'figure.facecolor': 'white',
             'axes.facecolor': '#FAFBFC',
@@ -583,23 +650,26 @@ def build_dashboard(script_dir, stats_log):
         GOLD = '#F39C12'
 
         chart_paths = []
+        xr = list(range(n_pts))
 
-        # ── Chart 1: Daily Transaction Volume ──
-        fig, ax = plt.subplots(figsize=(7, 4))
-        x = range(len(dates))
-        bar_w = 0.35
-        bars1 = ax.bar([i - bar_w/2 for i in x], successful, bar_w, label='Successful', color=BLUE, edgecolor='white', linewidth=0.5)
-        bars2 = ax.bar([i + bar_w/2 for i in x], failed, bar_w, label='Failed', color=RED, edgecolor='white', linewidth=0.5)
-        for bar in bars1:
-            ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.5, int(bar.get_height()), ha='center', va='bottom', fontsize=8, fontweight='bold', color=BLUE)
-        for bar in bars2:
-            ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.5, int(bar.get_height()), ha='center', va='bottom', fontsize=8, fontweight='bold', color=RED)
-        ax.set_xticks(list(x))
-        ax.set_xticklabels(short_dates, rotation=45, ha='right')
-        ax.set_title('Daily Transaction Volume', fontsize=13, fontweight='bold', color='#1F4E79', pad=12)
+        # ── Chart 1: Transaction Volume — single stacked bar per period ──
+        FT_KEYS   = ['FULFILMENT_TIMEOUT', 'Third party Timeout', 'Invalid Request', 'Insufficient Funds', 'Transaction failed', 'Transaction Pending']
+        FT_LABELS = ['Fulfilment T/O', '3rd Party T/O', 'Invalid Req', 'Insuff. Funds', 'Txn Failed', 'Txn Pending']
+        FT_COLORS = [RED, ORANGE, GOLD, PURPLE, '#C0392B', '#1ABC9C']
+
+        fig, ax = plt.subplots(figsize=(fig_w, 4.5))
+        ax.bar(xr, successful, label='Successful', color=BLUE, edgecolor='white', linewidth=0.4)
+        bottoms = list(successful)
+        for fk, fl, fc in zip(FT_KEYS, FT_LABELS, FT_COLORS):
+            counts = [d.get('failure_types', {}).get(fk, 0) for d in chart_data]
+            if any(v > 0 for v in counts):
+                ax.bar(xr, counts, bottom=bottoms, label=fl, color=fc, edgecolor='white', linewidth=0.4)
+                bottoms = [b + c for b, c in zip(bottoms, counts)]
+        _set_xticks(ax)
+        ax.set_title(f'{period_label} Transaction Volume', fontsize=13, fontweight='bold', color='#1F4E79', pad=12)
         ax.set_ylabel('Count')
-        ax.legend(frameon=True, fancybox=True, shadow=True, loc='upper right')
         ax.yaxis.set_major_locator(mticker.MaxNLocator(integer=True))
+        ax.legend(frameon=False, loc='upper right', fontsize=8, ncol=2)
         fig.tight_layout()
         p1 = os.path.join(script_dir, '_chart_volume.png')
         fig.savefig(p1, dpi=150, bbox_inches='tight')
@@ -607,26 +677,31 @@ def build_dashboard(script_dir, stats_log):
         chart_paths.append(p1)
 
         # ── Chart 2: Failure Rate Trend ──
-        fig, ax = plt.subplots(figsize=(7, 4))
-        ax.plot(short_dates, fail_rates, color=ORANGE, marker='o', linewidth=2.5, markersize=8, markerfacecolor='white', markeredgewidth=2, markeredgecolor=ORANGE)
-        for i, rate in enumerate(fail_rates):
-            ax.annotate(f'{rate:.1f}%', (short_dates[i], rate), textcoords="offset points", xytext=(0, 12), ha='center', fontsize=9, fontweight='bold', color=ORANGE)
-        ax.set_title('Failure Rate Trend', fontsize=13, fontweight='bold', color='#1F4E79', pad=12)
+        fig, ax = plt.subplots(figsize=(fig_w, 4.5))
+        ax.plot(xr, fail_rates, color=ORANGE, linewidth=2.5,
+                marker='o' if n_pts <= 12 else None,
+                markersize=6, markerfacecolor='white', markeredgewidth=2,
+                markeredgecolor=ORANGE)
+        ax.fill_between(xr, fail_rates, alpha=0.08, color=ORANGE)
+        # Annotate only the last value
+        ax.annotate(f'{fail_rates[-1]:.1f}%', (xr[-1], fail_rates[-1]),
+                    textcoords='offset points', xytext=(6, 0), fontsize=9,
+                    fontweight='bold', color=ORANGE, va='center')
+        _set_xticks(ax)
+        ax.set_title(f'{period_label} Failure Rate Trend', fontsize=13, fontweight='bold', color='#1F4E79', pad=12)
         ax.set_ylabel('Failure Rate (%)')
-        ax.set_ylim(0, max(fail_rates) * 1.3 if fail_rates else 100)
-        ax.fill_between(short_dates, fail_rates, alpha=0.1, color=ORANGE)
+        ax.set_ylim(0, max(fail_rates) * 1.4 if fail_rates else 100)
         fig.tight_layout()
         p2 = os.path.join(script_dir, '_chart_failrate.png')
         fig.savefig(p2, dpi=150, bbox_inches='tight')
         plt.close(fig)
         chart_paths.append(p2)
 
-        # ── Chart 3: Failure Type Breakdown (Donut) ──
+        # ── Chart 3: Failure Type Breakdown (Donut) — always today's data ──
         fig, ax = plt.subplots(figsize=(7, 4))
         pie_labels = list(ft.keys())
         pie_values = list(ft.values())
-        colours = [BLUE, RED, GOLD, GREEN, PURPLE]
-        # Filter out zero values for cleaner pie
+        colours = [BLUE, RED, GOLD, GREEN, PURPLE, '#C0392B']
         non_zero = [(l, v, c) for l, v, c in zip(pie_labels, pie_values, colours) if v > 0]
         if non_zero:
             nl, nv, nc = zip(*non_zero)
@@ -641,7 +716,6 @@ def build_dashboard(script_dir, stats_log):
             at.set_fontweight('bold')
             at.set_fontsize(9)
         ax.set_title(f'Failure Type Breakdown — {latest["date"]}', fontsize=13, fontweight='bold', color='#1F4E79', pad=12)
-        # Add center text
         ax.text(0, 0, f'{sum(nv)}\nTotal', ha='center', va='center', fontsize=14, fontweight='bold', color='#1F4E79')
         fig.tight_layout()
         p3 = os.path.join(script_dir, '_chart_failtype.png')
@@ -650,11 +724,14 @@ def build_dashboard(script_dir, stats_log):
         chart_paths.append(p3)
 
         # ── Chart 4: Reversal Amount ──
-        fig, ax = plt.subplots(figsize=(7, 4))
-        bars = ax.bar(short_dates, rev_amounts, color=GREEN, edgecolor='white', linewidth=0.5, width=0.5)
-        for bar in bars:
-            ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 10, f'GHS {bar.get_height():,.0f}', ha='center', va='bottom', fontsize=9, fontweight='bold', color=GREEN)
-        ax.set_title('Daily Reversal Amount', fontsize=13, fontweight='bold', color='#1F4E79', pad=12)
+        fig, ax = plt.subplots(figsize=(fig_w, 4.5))
+        ax.bar(xr, rev_amounts, color=GREEN, edgecolor='white', linewidth=0.4, width=0.7)
+        # Annotate only the last bar
+        last_val = rev_amounts[-1]
+        ax.text(xr[-1], last_val + max(rev_amounts) * 0.02,
+                f'GHS {last_val:,.0f}', ha='center', va='bottom', fontsize=8, fontweight='bold', color=GREEN)
+        _set_xticks(ax)
+        ax.set_title(f'{period_label} Reversal Amount', fontsize=13, fontweight='bold', color='#1F4E79', pad=12)
         ax.set_ylabel('Amount (GHS)')
         ax.yaxis.set_major_formatter(mticker.FuncFormatter(lambda x, _: f'{x:,.0f}'))
         fig.tight_layout()
@@ -713,6 +790,8 @@ def build_dashboard(script_dir, stats_log):
         ("3rd Party Timeout", ft.get('Third party Timeout', 0), "E74C3C"),
         ("Invalid Request", ft.get('Invalid Request', 0), "F39C12"),
         ("Insufficient Funds", ft.get('Insufficient Funds', 0), "E74C3C"),
+        ("Transaction Failed", ft.get('Transaction failed', 0), "C0392B"),
+        ("Transaction Pending", ft.get('Transaction Pending', 0), "1ABC9C"),
     ]
 
     for i, (label, value, colour) in enumerate(kpi_cards):
@@ -735,8 +814,12 @@ def build_dashboard(script_dir, stats_log):
     for i in range(1, 10):
         ws_snap.column_dimensions[get_column_letter(i)].width = 16
 
-    wb.save(dashboard_path)
-    print(f"  Dashboard saved with {len(stats_log)} day(s) of data")
+    try:
+        wb.save(dashboard_path)
+        print(f"  Dashboard saved with {len(stats_log)} day(s) of data")
+    except PermissionError:
+        print(f"\n  WARNING: Could not save dashboard — the file is open in Excel.")
+        print(f"  Please close '{os.path.basename(dashboard_path)}' and run the script again.")
 
     # Clean up temporary chart images
     for tmp in ['_chart_volume.png', '_chart_failrate.png', '_chart_failtype.png', '_chart_revamount.png']:
