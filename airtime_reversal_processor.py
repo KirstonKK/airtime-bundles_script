@@ -702,21 +702,33 @@ def build_dashboard(script_dir, stats_log):
         pie_labels = list(ft.keys())
         pie_values = list(ft.values())
         colours = [BLUE, RED, GOLD, GREEN, PURPLE, '#C0392B']
-        non_zero = [(l, v, c) for l, v, c in zip(pie_labels, pie_values, colours) if v > 0]
-        if non_zero:
-            nl, nv, nc = zip(*non_zero)
+        valid_items = []
+        for l, v, c in zip(pie_labels, pie_values, colours):
+            try:
+                val = float(v)
+            except (TypeError, ValueError):
+                continue
+            if _math.isfinite(val) and val > 0:
+                valid_items.append((l, val, c))
+
+        if valid_items:
+            nl, nv, nc = zip(*valid_items)
+            total_failures = sum(nv)
+            wedges, texts, autotexts = ax.pie(
+                nv, labels=nl, colors=nc, autopct='%1.1f%%',
+                startangle=90, pctdistance=0.75, wedgeprops=dict(width=0.45, edgecolor='white', linewidth=2),
+                textprops={'fontsize': 9}
+            )
+            for at in autotexts:
+                at.set_fontweight('bold')
+                at.set_fontsize(9)
+            ax.text(0, 0, f'{int(total_failures):,}\nTotal', ha='center', va='center', fontsize=14, fontweight='bold', color='#1F4E79')
         else:
-            nl, nv, nc = pie_labels, pie_values, colours[:len(pie_labels)]
-        wedges, texts, autotexts = ax.pie(
-            nv, labels=nl, colors=nc, autopct='%1.1f%%',
-            startangle=90, pctdistance=0.75, wedgeprops=dict(width=0.45, edgecolor='white', linewidth=2),
-            textprops={'fontsize': 9}
-        )
-        for at in autotexts:
-            at.set_fontweight('bold')
-            at.set_fontsize(9)
+            ax.axis('off')
+            ax.text(0.5, 0.5, 'No failed transactions\nfor selected date',
+                    transform=ax.transAxes, ha='center', va='center',
+                    fontsize=12, fontweight='bold', color='#1F4E79')
         ax.set_title(f'Failure Type Breakdown — {latest["date"]}', fontsize=13, fontweight='bold', color='#1F4E79', pad=12)
-        ax.text(0, 0, f'{sum(nv)}\nTotal', ha='center', va='center', fontsize=14, fontweight='bold', color='#1F4E79')
         fig.tight_layout()
         p3 = os.path.join(script_dir, '_chart_failtype.png')
         fig.savefig(p3, dpi=150, bbox_inches='tight')
