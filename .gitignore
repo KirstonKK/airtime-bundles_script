@@ -1,2 +1,6 @@
 __pycache__/
 *.pyc
+dashboard/Reversal_Dashboard.xlsx
+dashboard/dashboard_stats.json
+input/*.csv
+output/*.xlsx
